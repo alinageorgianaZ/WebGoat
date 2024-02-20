@@ -12,19 +12,20 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+    displayName: 'Run a multi-line script'
+  - task: SynopsysDetectTask@9
+    inputs:
+      BlackDuckService:''Blackduck''
+      DetectArguments:
+        --blackduck.trust.cert=false
+       --detect.blackduck.signature.scanner.snippet.matching=FULL_SNIPPET_MATCHING
+        --detect.project.name=Test1
+        --detect.project.version=Initial
+      DetectVersion:"latest"
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-  - task: SynopsysDetectTask@9
-    inputs:
-      BlackDuckService: 'Blackduck'
-      DetectArguments: |
-        --blackduck.trust.cert=false
-        --detect.blackduck.signature.scanner.snippet.matching=FULL_SNIPPET_MATCHING
-        --detect.project.name=Test1
-        --detect.project.version=Initial
-      DetectVersion: 'latest'
+
 
 
