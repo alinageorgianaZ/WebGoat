@@ -1,4 +1,17 @@
 # Starter pipeline
+- task: SynopsysDetectTask@9
+  inputs:
+    BlackDuckService: 'Blackduck'
+    DetectArguments: |
+      --- blackduck.offline.mode = false 
+      --- detect.blackduck.scan.mode = INTELLIGENT
+      --- detect.blackduck.signature.scanner.individual.file.matching = SOURCE
+      --- detect.blackduck.signature.scanner.snippet.matching = SNIPPET_MATCHING
+      --- detect.blackduck.signature.scanner.upload.source.mode = true
+      --- detect.diagnostic = true
+      --- detect.project.name = Test1
+      --- detect.project.version.name =AzureDevOps
+    DetectVersion: 'latest'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
