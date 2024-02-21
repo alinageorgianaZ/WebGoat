@@ -12,6 +12,19 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- task: SynopsysDetectTask@9
+  inputs:
+    BlackDuckService: 'Blackduck'
+    DetectArguments: |
+      --- blackduck.offline.mode = false 
+      --- detect.blackduck.scan.mode = INTELLIGENT
+      --- detect.blackduck.signature.scanner.individual.file.matching = SOURCE
+      --- detect.blackduck.signature.scanner.snippet.matching = SNIPPET_MATCHING
+      --- detect.blackduck.signature.scanner.upload.source.mode = true
+      --- detect.diagnostic = true
+      --- detect.project.name = Test1
+      --- detect.project.version.name =AzureDevOps
+    DetectVersion: 'latest'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
