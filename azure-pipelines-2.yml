@@ -22,6 +22,7 @@ steps:
       --- detect.blackduck.signature.scanner.snippet.matching = SNIPPET_MATCHING
       --- detect.blackduck.signature.scanner.upload.source.mode = true
       --- detect.diagnostic = true
+      --- logging.level.com.synopsys.integration = DEBUG
       --- detect.project.name = Test1
       --- detect.project.version.name =AzureDevOps
     DetectVersion: 'latest'
