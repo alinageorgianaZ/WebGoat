@@ -6,7 +6,7 @@ pull_request:
 branches: [ "main" ]
 jobs:
 build:
-runs-on: ubuntu-latest
+runs-on: windows
 steps: - uses: actions/checkout@v3
 - name: Scan run: docker run -v "$(pwd)":"/scanoss" ghcr.io/scanoss/scanoss-py scan --output output.json .
 - uses: actions/upload-artifact@v3 with: name: output.json path: output.json
